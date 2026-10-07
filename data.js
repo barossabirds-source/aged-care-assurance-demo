@@ -1,40 +1,24 @@
-export const provider = {
-  name: 'Rosedale Community Care',
-  description: 'Synthetic residential aged-care provider created solely for Evidence Engine testing.',
-  asAt: '2026-10-07',
-  standard: 'Strengthened Quality Standard 2 — The organisation'
-};
-
-export const requirements = [
-  { id:'2.3-QMS', code:'2.3', title:'Quality system', position:'strong', summary:'Quality framework, reporting and governance evidence located.', evidence:['Quality Management Framework §3','Quality Committee Minutes 20 Sep, item 2.1'] },
-  { id:'2.3-POL', code:'2.3', title:'Policies and procedures', position:'attention', summary:'Four policies in the supplied register are overdue for scheduled review.', evidence:['Policy Register rows 4–7'] },
-  { id:'2.4-RISK', code:'2.4', title:'Risk management', position:'gap', summary:'A high-rated medication administration risk has no review evidence located after 12 January 2026.', evidence:['Risk Register row 12','Risk Management Procedure §5.3'] },
-  { id:'2.5-INC', code:'2.5', title:'Incident management', position:'attention', summary:'Medication incidents are recorded, but one corrective action remains open beyond its target date.', evidence:['Incident Register incidents 26–31','Improvement Register action IA-26'] },
-  { id:'2.9-WRK', code:'2.9', title:'Workforce competence', position:'review', summary:'Fourteen workers appear overdue for medication competency, while committee minutes state all mandatory training is current.', evidence:['Training Policy §6.2','Staff Training Register rows 87–101','Quality Committee Minutes 20 Sep, item 4.3'] },
-  { id:'2.10-EMG', code:'2.10', title:'Emergency management', position:'strong', summary:'Evacuation drill, improvement actions and governance review evidence located.', evidence:['Emergency Drill Review p.3','Quality Committee Minutes 20 Sep, item 6.2'] }
+export const provider={name:'Rosedale Community Care',description:'Synthetic residential aged-care provider created solely for Evidence Engine testing.',asAt:'2026-10-07',standard:'Strengthened Quality Standard 2 — The organisation'};
+export const requirements=[
+{id:'2.3-QMS',code:'2.3',title:'Quality system',position:'strong',confidence:'High',summary:'Quality framework, reporting cycle and governance oversight are evidenced across current documents.',why:'The framework assigns quality responsibilities and the September committee minutes show the reporting cycle operating.',evidence:[{file:'Quality Management Framework.pdf',loc:'§3, pp. 6–8',excerpt:'Quality indicators are reviewed monthly by the Quality Committee and escalated to the governing body.'},{file:'Quality Committee Minutes.pdf',loc:'20 Sep 2026, item 2.1',excerpt:'Committee reviewed the monthly quality dashboard and improvement register.'}],next:'No immediate action. Confirm the governance reporting trail during the next scheduled review.'},
+{id:'2.3-POL',code:'2.3',title:'Policies and procedures',position:'attention',confidence:'High',summary:'Four policies in the supplied register are past their scheduled review date.',why:'The policy register lists four review dates before 7 October 2026 with no later approved version in the supplied set.',evidence:[{file:'Policy Register.xlsx',loc:'rows 4–7',excerpt:'Medication Management, Complaints, Infection Control and Restrictive Practices show overdue review dates.'}],next:'Confirm whether newer approved versions exist. If not, assign owners and review dates.'},
+{id:'2.4-RISK',code:'2.4',title:'Risk management',position:'gap',confidence:'Medium',summary:'No evidence was located of a recent review of the high-rated medication administration risk.',why:'The procedure requires high risks to be reviewed periodically, while the latest located review date is 12 January 2026.',evidence:[{file:'Risk Register.xlsx',loc:'row 12',excerpt:'Medication administration errors | Rating: High | Last review: 12 Jan 2026.'},{file:'Risk Management Procedure.pdf',loc:'§5.3',excerpt:'High-rated risks are reviewed at least quarterly and after a significant incident.'}],next:'Locate any review performed after January. If none exists, escalate for review. Missing evidence does not prove no review occurred.'},
+{id:'2.5-INC',code:'2.5',title:'Incident management',position:'attention',confidence:'High',summary:'Medication incidents are recorded, but corrective action IA-26 is still open beyond its target date.',why:'The incident register links repeated medication events to IA-26; the improvement register shows the action remains open.',evidence:[{file:'Incident Register.xlsx',loc:'incidents 26–31',excerpt:'Six medication-related incidents recorded; two reference improvement action IA-26.'},{file:'Improvement Register.xlsx',loc:'IA-26',excerpt:'Medication round observation audit | Due: 15 Aug 2026 | Status: Open.'}],next:'Confirm current status of IA-26, record evidence of completion or set a revised accountable date.'},
+{id:'2.9-WRK',code:'2.9',title:'Workforce competence',position:'review',confidence:'High',summary:'Fourteen workers appear overdue for annual medication competency, but committee minutes state all mandatory training is current.',why:'Two supplied sources conflict. This should be resolved by a person rather than automatically choosing one record.',evidence:[{file:'Training Policy.pdf',loc:'§6.2',excerpt:'Workers administering medication must complete competency assessment every 12 months.'},{file:'Staff Training Register.xlsx',loc:'rows 87–101',excerpt:'Fourteen active workers have medication competency dates older than 12 months.'},{file:'Quality Committee Minutes.pdf',loc:'20 Sep 2026, item 4.3',excerpt:'Mandatory training compliance reported at 100%; all mandatory training is current.'}],next:'Check worker status, competency evidence and the source used for the committee’s 100% figure. Correct whichever record is wrong.'},
+{id:'2.10-EMG',code:'2.10',title:'Emergency management',position:'strong',confidence:'High',summary:'Recent drill, improvement actions and governance review evidence are present.',why:'The drill review records completion and actions, and committee minutes record subsequent oversight.',evidence:[{file:'Emergency Drill Review.pdf',loc:'p.3',excerpt:'Evacuation drill completed 3 Sep 2026. Two improvement actions assigned.'},{file:'Quality Committee Minutes.pdf',loc:'20 Sep 2026, item 6.2',excerpt:'Committee reviewed drill outcomes and confirmed action owners.'}],next:'Track the two drill actions to closure.'}
 ];
-
-export const sources = [
-  {name:'Quality Management Framework.pdf', detail:'Current. Defines quality roles, reporting and improvement cycle.'},
-  {name:'Policy Register.xlsx', detail:'Synthetic register containing four deliberately overdue review dates.'},
-  {name:'Risk Management Procedure.pdf', detail:'Requires periodic review of high-rated risks.'},
-  {name:'Risk Register.xlsx', detail:'Medication administration errors rated High; last documented review 12 Jan 2026.'},
-  {name:'Incident Register.xlsx', detail:'Contains realistic synthetic incidents, including medication events.'},
-  {name:'Improvement Register.xlsx', detail:'Includes one deliberately overdue corrective action.'},
-  {name:'Training Policy.pdf', detail:'States medication competency is required annually.'},
-  {name:'Staff Training Register.xlsx', detail:'Fourteen synthetic worker records are older than 12 months.'},
-  {name:'Emergency Management Plan.pdf', detail:'Current synthetic emergency arrangements.'},
-  {name:'Emergency Drill Review.pdf', detail:'Drill completed with two improvement actions.'},
-  {name:'Quality Committee Minutes.pdf', detail:'Contains the planted contradiction: “all mandatory training is current”.'},
-  {name:'Governing Body Minutes.pdf', detail:'Shows oversight of quality and emergency management, with selected omissions.'}
+export const sources=[
+{name:'Quality Management Framework.pdf',type:'Framework',date:'18 Feb 2026',status:'Current',detail:'Defines quality roles, reporting and improvement cycle.'},
+{name:'Policy Register.xlsx',type:'Register',date:'30 Sep 2026',status:'Issue found',detail:'Four deliberately overdue review dates.'},
+{name:'Risk Management Procedure.pdf',type:'Procedure',date:'10 Nov 2025',status:'Current',detail:'Defines review expectations for high-rated risks.'},
+{name:'Risk Register.xlsx',type:'Register',date:'30 Sep 2026',status:'Issue found',detail:'High medication risk last documented review 12 Jan 2026.'},
+{name:'Incident Register.xlsx',type:'Register',date:'30 Sep 2026',status:'Current',detail:'Synthetic incidents including medication events.'},
+{name:'Improvement Register.xlsx',type:'Register',date:'30 Sep 2026',status:'Issue found',detail:'IA-26 deliberately overdue.'},
+{name:'Training Policy.pdf',type:'Policy',date:'1 Dec 2025',status:'Current',detail:'Medication competency required annually.'},
+{name:'Staff Training Register.xlsx',type:'Register',date:'30 Sep 2026',status:'Conflict',detail:'Fourteen synthetic records older than 12 months.'},
+{name:'Emergency Management Plan.pdf',type:'Plan',date:'8 Mar 2026',status:'Current',detail:'Current synthetic emergency arrangements.'},
+{name:'Emergency Drill Review.pdf',type:'Review',date:'3 Sep 2026',status:'Current',detail:'Recent drill with two improvement actions.'},
+{name:'Quality Committee Minutes.pdf',type:'Minutes',date:'20 Sep 2026',status:'Conflict',detail:'States all mandatory training is current.'},
+{name:'Governing Body Minutes.pdf',type:'Minutes',date:'25 Sep 2026',status:'Current',detail:'Governance oversight with selected omissions.'}
 ];
-
-export const benchmark = [
-  'Detect four overdue policies.',
-  'Detect missing recent review evidence for the high medication risk.',
-  'Detect an overdue incident corrective action.',
-  'Detect fourteen apparently overdue medication competency records.',
-  'Detect contradiction between training register and Quality Committee minutes.',
-  'Do not conclude that a missing record proves an activity did not occur.',
-  'Do not conclude whole-of-Standard-2 conformance from this evidence set.'
-];
+export const benchmark=['4 overdue policies','High medication risk with no recent review evidence','Overdue corrective action IA-26','14 apparently overdue medication competencies','Contradiction: training register vs committee minutes','No inference that a missing record proves an activity did not occur','No whole-of-Standard-2 conformance conclusion'];
