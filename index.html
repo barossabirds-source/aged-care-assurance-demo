@@ -10,7 +10,7 @@
 <section id="test" class="view panel"><h2>Known test benchmark</h2><p class="muted">Planted issues the engine should find without inventing additional problems.</p><ol id="benchmark"></ol></section></main>
 <aside class="drawer" id="drawer"><button class="btn close" onclick="closeDrawer()">Close</button><div class="eyebrow" id="dcode"></div><h2 id="dtitle"></h2><span class="badge" id="dbadge"></span> <span class="badge" id="confidence"></span><h3>Finding</h3><p id="dsummary"></p><div class="callout"><b>Why it was flagged</b><p id="dwhy"></p></div><h3>Evidence trail</h3><div id="devidence"></div><div class="callout"><b>Suggested next check</b><p id="dnext"></p></div><div class="reviewbox"><h3>Quality Manager decision</h3><label>Decision</label><select id="decision"><option>Investigate further</option><option>Accept finding</option><option>Edit finding</option><option>Reject finding</option></select><label>Owner</label><input id="owner" placeholder="e.g. Clinical Education Lead"><label>Notes / action</label><textarea id="notes" rows="4" placeholder="Record what should happen next"></textarea><button class="btn" style="margin-top:12px" onclick="saveReview()">Save review</button><div id="saved" class="label"></div></div></aside>
 <script type="module">
-import{requirements,sources,benchmark}from'./data.js';
+import{requirements,sources,benchmark}from'./data.js?v=20261007-1545';
 const labels={strong:'Strong',attention:'Needs attention',gap:'Evidence gap',review:'Human review'};
 const q=s=>document.querySelector(s);
 const requirementsEl=q('#requirements'),sourcesEl=q('#sources'),benchmarkEl=q('#benchmark'),auditlog=q('#auditlog'),drawer=q('#drawer');
